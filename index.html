@@ -108,21 +108,18 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('slider', () => ({
-                tab: '',
+                tab: 0,
                 tabs: [...document.querySelectorAll('nav[role=tablist] a[role=tab]')],
                 init() {
                     this.changeSlide()
                 },
                 changeSlide() {
-                    let currentTab = 0;
                     let timeInterval = this.$refs.slider.dataset.interval;
-                    this.tab = currentTab
                     this.tabs[this.tab].setAttribute('class', 'active')
                     
                     // set interval to change slide
                     let startInterval = () => {
-                        currentTab = (currentTab < this.tabs.length - 1)? currentTab + 1 : 0;
-                        this.tab = currentTab;
+                        this.tab = (this.tab < this.tabs.length - 1)? this.tab + 1 : 0;
                         this.tabs.forEach( (tab)=> {
                             (this.tab == this.tabs.indexOf(tab)) ?  tab.setAttribute('class', 'active') : tab.removeAttribute('class') 
                         })
@@ -150,8 +147,7 @@
                     this.tabs.forEach( (tab)=> {
                         tab.addEventListener('click', (e)=> {
                             e.preventDefault()
-                            currentTab = this.tabs.indexOf(e.target)
-                            this.tab = currentTab
+                            this.tab = this.tabs.indexOf(e.target)
                             this.tabs.forEach( (tab)=> {
                                 (this.tab == this.tabs.indexOf(tab)) ?  tab.setAttribute('class', 'active') : tab.removeAttribute('class') 
                             }) 
