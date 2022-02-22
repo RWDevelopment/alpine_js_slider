@@ -113,7 +113,23 @@
                 init() {
                     this.changeSlide()
                 },
-            
+                changeSlide() {
+                    let currentTab = 0;
+                    let timeInterval = this.$refs.slider.dataset.interval;
+                    this.tab = currentTab
+                    this.tabs[this.tab].setAttribute('class', 'active')
+                    
+                    // set interval to change slide
+                    let startInterval = () => {
+                        currentTab = (currentTab < this.tabs.length - 1)? currentTab + 1 : 0;
+                        this.tab = currentTab;
+
+                        this.tabs.forEach( (tab)=> {
+                            (this.tab == this.tabs.indexOf(tab)) ?  tab.setAttribute('class', 'active') : tab.removeAttribute('class') 
+                        })
+                    }
+                
+                }
             }))
         })
     </script>
