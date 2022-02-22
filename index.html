@@ -80,6 +80,11 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('slider', () => ({
+                tab: '',
+                tabs: [...document.querySelectorAll('nav[role=tablist] a[role=tab]')],
+                init() {
+                    this.changeSlide()
+                },
             
             }))
         })
