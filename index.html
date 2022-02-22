@@ -1,6 +1,72 @@
 <html data-theme="light">
 <head>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <style>
+        [x-cloak] { 
+            display: none !important;
+        }
+        nav[role=tablist] {
+            justify-content: center;
+            user-select: none;
+            border-bottom: 1px solid var(--muted-border-color);
+            margin-bottom: var(--spacing);
+        }
+        a[role=tab] {
+            color: var(--form-element-disabled-border-color);
+            border-bottom: 1px solid transparent;
+            transition: all var(--transition);
+            min-width: 120px;
+            text-align: center;
+            user-select: none;
+        }
+        a[role=tab].active {
+            color: var(--contrast);
+            border-radius: 0;
+            border-bottom: 1px solid var(--contrast);
+        }
+        a[role=tab]:focus {
+            background: transparent;
+        }
+        div.grid div {
+            min-height: 300px;
+        }
+        div.grid div {
+            animation-duration: 0.45s;
+            -webkit-animation-duration: 0.45s;
+            animation-fill-mode: both;
+            -webkit-animation-fill-mode: both;
+            -webkit-animation-name: slideIn;
+            animation-name: slideIn;
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateY(1rem);
+                opacity: 0;
+            }
+            100% {
+                transform:translateY(0rem);
+                opacity: 1;
+            }
+            0% {
+                transform: translateY(1rem);
+                opacity: 0;
+            }
+        }
+        @-webkit-keyframes slideIn {
+            0% {
+                -webkit-transform: transform;
+                -webkit-opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateY(0);
+                -webkit-opacity: 1;
+            }
+            0% {
+                -webkit-transform: translateY(1rem);
+                -webkit-opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
