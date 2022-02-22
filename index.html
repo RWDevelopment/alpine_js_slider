@@ -111,8 +111,11 @@
                 tab: 0,
                 tabs: [...document.querySelectorAll('nav[role=tablist] a[role=tab]')],
                 init() {
+                    // initialize main function
                     this.changeSlide()
                 },
+                
+                // main function
                 changeSlide() {
                     let timeInterval = this.$refs.slider.dataset.interval;
                     this.tabs[this.tab].setAttribute('class', 'active')
