@@ -123,7 +123,6 @@
                     let startInterval = () => {
                         currentTab = (currentTab < this.tabs.length - 1)? currentTab + 1 : 0;
                         this.tab = currentTab;
-
                         this.tabs.forEach( (tab)=> {
                             (this.tab == this.tabs.indexOf(tab)) ?  tab.setAttribute('class', 'active') : tab.removeAttribute('class') 
                         })
@@ -139,7 +138,25 @@
                             slideInterval = null;
                         }
                     }
-                
+                    
+                    // mouse out slider starts again slide
+                    this.$refs.slider.onmouseout = () => {
+                        if (slideInterval === null) { 
+                            slideInterval = setInterval(startInterval, timeInterval);
+                        }
+                    }
+                    
+                    // slider tabs click event 
+                    this.tabs.forEach( (tab)=> {
+                        tab.addEventListener('click', (e)=> {
+                            e.preventDefault()
+                            currentTab = this.tabs.indexOf(e.target)
+                            this.tab = currentTab
+                            this.tabs.forEach( (tab)=> {
+                                (this.tab == this.tabs.indexOf(tab)) ?  tab.setAttribute('class', 'active') : tab.removeAttribute('class') 
+                            }) 
+                        })
+                    })
                 }
             }))
         })
