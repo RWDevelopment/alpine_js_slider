@@ -1,3 +1,3 @@
-# Alpine.js slider
+# Alpine.js tab slider
 
-simple tabs slider content made with Alpine.js and Pico css framework
+simple tab slider content made with Alpine.js and Pico css framework
