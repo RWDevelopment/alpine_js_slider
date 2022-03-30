@@ -2,4 +2,4 @@
 
 simple tab slider content made with Alpine.js and Pico css framework
 
-![Slider](screen.jpg)
+![Slider](screen.webp)
