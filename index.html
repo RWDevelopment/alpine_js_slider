@@ -111,6 +111,8 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('slider', () => ({
                 tab: 0,
+                
+                // slider tabs
                 tabs: [...document.querySelectorAll('nav[role=tablist] a[role=tab]')],
                 
                 init() {
